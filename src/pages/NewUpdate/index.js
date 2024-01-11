@@ -12,6 +12,8 @@ export default function NewUpdate(){
       </div>
       <div className="card-body">
 
+        
+
       </div>
     </div>
 
