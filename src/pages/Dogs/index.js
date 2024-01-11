@@ -13,6 +13,15 @@ export default function Dogs(){
     .then(response => {setDogs(response.data)})
   }, []);
 
+  // Update, navega para tela NewUpdate
+  async function updateDog(id){
+    try {
+      navigate(`/newupdate/${id}`)      
+    } catch (error) {
+      alert('Erro ao navegar');      
+    }
+  }
+
   return(
     <div data-testid="mycard" className="card border-primary" style={{marginTop: '20px'}} >
       <div className="card-header bg-primary" style={{color: '#fff'}}>
@@ -41,7 +50,8 @@ export default function Dogs(){
                   <td>
 
                     <button data-testid="mybtn1" type="button"
-                    className="btn btn-outline-info">Editar</button>
+                    className="btn btn-outline-info" style={{margin: '2px'}}
+                    onClick={() => updateDog(dog.id)}>Editar</button>
 
                     <button data-testid="mybtn2" type="button"
                     className="btn btn-outline-danger">Excluir</button>
