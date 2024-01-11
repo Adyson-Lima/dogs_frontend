@@ -20,4 +20,8 @@ describe('Testes da tela Dogs', () => {
     expect(screen.getByTestId('mylink')).toBeInTheDocument();
   });
 
+  it('Existe tabela em Dogs?', () => {
+    expect(screen.getByTestId('mytable')).toBeInTheDocument();
+  });
+
 });
