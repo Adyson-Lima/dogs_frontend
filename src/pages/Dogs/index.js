@@ -22,6 +22,16 @@ export default function Dogs(){
     }
   }
 
+  // Delete, exclui um dado na api
+  async function deleteDog(id){
+    try {
+      await api.delete(`api/v1/dogs/${id}`,{});
+      setDogs(my_dogs.filter(dog => dog.id !== id));      
+    } catch (error) {
+      alert('Erro ao excluir');      
+    }    
+  }
+
   return(
     <div data-testid="mycard" className="card border-primary" style={{marginTop: '20px'}} >
       <div className="card-header bg-primary" style={{color: '#fff'}}>
@@ -54,7 +64,8 @@ export default function Dogs(){
                     onClick={() => updateDog(dog.id)}>Editar</button>
 
                     <button data-testid="mybtn2" type="button"
-                    className="btn btn-outline-danger">Excluir</button>
+                    className="btn btn-outline-danger" style={{margin: '2px'}}
+                    onClick={() => deleteDog(dog.id)}>Excluir</button>
 
                   </td>
               </tr>
